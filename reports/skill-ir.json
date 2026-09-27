@@ -1,0 +1,96 @@
+{
+  "schema_version": "2.0.0-qiaomu-lite",
+  "generated_at": "2026-09-27",
+  "package": {
+    "name": "step-back",
+    "version": "0.1.0",
+    "owner": "Jhyphlau",
+    "maturity_tier": "governed",
+    "lifecycle_stage": null,
+    "upstream_inspiration": "555cider/agent-skills",
+    "upstream_sync": {}
+  },
+  "intent": {
+    "description": "Use when a substantive task or agreed stage is ready to close, a related new question follows completed work, or repeated investigation or scope drift obscures the original outcome. Also use when the user asks to step back, 收口, or 回看目标. Not a checkpoint for every reply or an extra approval gate for already authorized work.",
+    "job_to_be_done": "Distinguish completed work from related new work without interrupting authorized progress.",
+    "target_users": [
+      "People collaborating with skill-capable agents"
+    ],
+    "inputs": [
+      "Current request, agreed scope, available completion evidence"
+    ],
+    "outputs": [
+      "A brief closure or scope-calibration statement when useful"
+    ],
+    "exclusions": [
+      "Background monitoring",
+      "Project scheduling",
+      "Automatic persistence"
+    ],
+    "qiaomu_defaults": {}
+  },
+  "triggers": {
+    "should_trigger": [
+      "阶段完成，可以收口了吗？",
+      "已完成，又有一个关联新问题。",
+      "我们失焦了，回看目标。"
+    ],
+    "should_not_trigger": [
+      "把这句话改得更简洁。",
+      "继续执行已批准计划的第二步。",
+      "解释一下复利。"
+    ],
+    "near_neighbor": [
+      "请对整个项目做深入复盘。",
+      "提交前测试失败，请修复。"
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "compact_workflow": [],
+    "gate_ladder": [],
+    "output_contract": []
+  },
+  "resources": {
+    "references": [],
+    "scripts": [],
+    "evals": [
+      "evals\\scenarios.md",
+      "evals\\trigger_cases.json"
+    ],
+    "reports": [
+      "reports\\creation-handoff.md",
+      "reports\\prior-art-research.md",
+      "reports\\scenario-review.md",
+      "reports\\skill-ir.json",
+      "reports\\trigger-eval.json"
+    ]
+  },
+  "portability": {
+    "canonical_format": "SKILL.md",
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible"
+    ],
+    "activation": {},
+    "execution": {
+      "type": "prompt-only"
+    },
+    "trust": {},
+    "permissions": {
+      "side_effects": "none"
+    },
+    "degradation": {
+      "unavailable": "No automatic reminder is guaranteed when the skill is not discovered or loaded."
+    }
+  },
+  "gates": {},
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}

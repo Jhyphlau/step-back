@@ -1,0 +1,4 @@
+interface:
+  display_name: "Step Back · 停一下，看全局"
+  short_description: "在阶段完成、关联换题或明显失焦时轻量回看目标，不增加审批门槛。"
+  default_prompt: "使用 $step-back 校准当前阶段的完成与换题边界。"

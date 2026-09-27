@@ -1,0 +1,23 @@
+{
+  "description_required_concepts": ["closure", "switch", "drift"],
+  "positive_concepts": {
+    "closure": ["ready to close", "收口", "阶段完成"],
+    "switch": ["related new question", "关联新问题", "换题"],
+    "drift": ["scope drift", "失焦", "回看目标"]
+  },
+  "recommended_threshold": 0.3,
+  "should_trigger": [
+    {"text": "阶段完成，可以收口了吗？", "family": "closure"},
+    {"text": "已完成，又有一个关联新问题。", "family": "switch"},
+    {"text": "我们失焦了，回看目标。", "family": "drift"}
+  ],
+  "should_not_trigger": [
+    {"text": "把这句话改得更简洁。", "family": "simple"},
+    {"text": "继续执行已批准计划的第二步。", "family": "authorized"},
+    {"text": "解释一下复利。", "family": "question"}
+  ],
+  "near_neighbor": [
+    {"text": "请对整个项目做深入复盘。", "family": "debrief"},
+    {"text": "提交前测试失败，请修复。", "family": "required-fix"}
+  ]
+}
