@@ -1,2 +1,65 @@
-# step-back
-Use when a substantive task or agreed stage is ready to close, a related new question follows completed work, or repeated investigation or scope drift obscures the original outcome. Also use when the user asks to step back, 收口, or 回看目标. Not a checkpoint for every reply or an extra approval gate for 
+# Step Back · 停一下，看全局
+
+让已完成的工作真正结束，让相关的新问题保持为新问题。
+
+纯提示词 Skill，适用于阶段交付、完成后换题和明显失焦。它不代替项目管理，也不限制用户主动改变方向。核心差异是区分“问问新需求”与“授权执行新需求”，而不只防止未经授权的改动。
+
+## 使用
+
+你可以直接这样说：
+
+- “step back，看一下原任务是否已经完成。”
+- “先收口，剩下哪些其实是新需求？”
+
+通常由 Agent 在自然节点调用，输出只占正常回复的一两句。明确授权的新任务直接继续，不额外审批。
+
+## 安装与更新
+
+发布目标：[Jhyphlau/step-back](https://github.com/Jhyphlau/step-back)。发布后可用：
+
+```sh
+npx skills add Jhyphlau/step-back --skill step-back
+```
+
+此命令供普通安装环境使用；已有本体/junction 治理的环境沿用自己的控制面，不在治理根执行安装器。
+
+也可将本目录作为一个完整 Skill 安装到目标 Agent 支持的用户级技能目录，并按需采用 [ACTIVATION.md](ACTIVATION.md) 的短入口。托管本体/junction 的环境应由其治理工具导入和激活，不手工复制第二份运行本体。
+
+已有同名上游 step-back 时，先明确选择本包或上游，避免同名并存。本包不是上游的同步镜像；更新来自本包自己的版本。
+
+## 权限与兼容性
+
+- [ ] Agent 支持读取 `SKILL.md`，并能发现安装目录。
+- [ ] 使用上述安装命令时需已有 Node.js/npm；手动安装纯文本包不需要它们。
+- [ ] 启用前阅读核心规则，确认不会与本地权限和交付要求冲突。
+
+无运行脚本、依赖、网络调用、hooks、计时器或后台服务。不保存对话、不改文件、不替用户决定优先级。Skill 必须被 Agent 发现并加载才可能生效；提示词不是强制拦截器。
+
+面向支持 SKILL.md 的 Agent；目录兼容不等于行为已经验证。`agents/interface.yaml` 是乔木打包元数据，非所有客户端原生配置。公开包不携带本机路径或个人任务记录。
+
+## 验证与发布状态
+
+版本 0.1.0，本地预发布。结构校验、词面触发检查和有限场景审查分开报告；不得把它们解释为长期防发散有效率或跨 Agent 一致性。详见 [交付记录](reports/creation-handoff.md)。
+
+维护者如已有 qiaomu-meta-skill，可运行其中的 `validate_skill.py <本目录>`、`trigger_eval.py <本目录>` 和 `export_skill_ir.py <本目录>`。这些是维护工具，不是用户运行依赖。触发检查是词面启发式，不是模型自动触发实测。
+
+## 来源
+
+- 555cider/agent-skills 的 step-back：采用自然检查点、继续工作的信息价值、可选改进不是完成门槛。
+- JetXu-LLM/smallest-complete：采用范围内完整交付、证据与声明匹配、完成后停止。
+- 使用 qiaomu-meta-skill 辅助设计与打包，不代表乔木是本作品作者。
+
+本包是独立改写，不是上述项目的官方版本。具体采用与舍弃见 [来源研究](reports/prior-art-research.md)，上游许可见 THIRD_PARTY_NOTICES.md。
+
+## Troubleshooting
+
+- 没有提醒：先检查该会话是否发现技能和入口规则；安装存在不证明已加载。
+- 提醒过多：检查是否错误地把普通问答、明确授权的新任务或计划内阶段当成换题门槛。
+- 任务未完就停：检查原定验收是否真的满足；修补实际缺口，不追加无关工程。
+- 用户想继续：服从清楚的新授权，无需再次劝停。
+
+停用时移除入口指引并通过原安装渠道取消激活；保留源码即可回退。发布、外部安装和持续效果仍需各自证据，本包不自动执行这些动作。
+
+## License 与维护
+
+MIT，Copyright (c) 2026 Jhyphlau。参考项目版权和 MIT 文本保留于 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。维护者仅在出现实际误触发、漏提醒或用户反馈时复查，不进行定时自动改写。

@@ -1,0 +1,13 @@
+interface:
+  display_name: "Step Back · 停一下，看全局"
+  short_description: "阶段收口、换题辨识与轻量失焦校准"
+  default_prompt: "使用 step-back 判断当前阶段是否完成，区分必要收尾与新需求；尊重已明确的继续授权。"
+compatibility:
+  canonical_format: "SKILL.md"
+  adapter_targets: [openai, claude, generic, agent-skills-compatible]
+  execution:
+    type: "prompt-only"
+  permissions:
+    side_effects: "none"
+  degradation:
+    unavailable: "No automatic reminder is guaranteed when the skill is not discovered or loaded."

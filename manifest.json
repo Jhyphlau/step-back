@@ -1,0 +1,23 @@
+{
+  "name": "step-back",
+  "version": "0.1.0",
+  "owner": "Jhyphlau",
+  "updated_at": "2026-09-27",
+  "status": "local-prerelease",
+  "maturity_tier": "governed",
+  "context_budget_tier": "production",
+  "upstream_inspiration": "555cider/agent-skills",
+  "intent": {
+    "job_to_be_done": "Distinguish completed work from related new work without interrupting authorized progress.",
+    "target_users": ["People collaborating with skill-capable agents"],
+    "inputs": ["Current request, agreed scope, available completion evidence"],
+    "outputs": ["A brief closure or scope-calibration statement when useful"],
+    "exclusions": ["Background monitoring", "Project scheduling", "Automatic persistence"]
+  },
+  "release_gates": {
+    "public_owner_and_license": "MIT-authorized",
+    "public_remote": "https://github.com/Jhyphlau/step-back",
+    "cross_agent_runtime": "unverified",
+    "long_term_effectiveness": "unverified"
+  }
+}
