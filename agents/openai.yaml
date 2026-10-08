@@ -1,4 +1,4 @@
 interface:
   display_name: "Step Back · 停一下，看全局"
-  short_description: "在阶段完成、关联换题或明显失焦时轻量回看目标，不增加审批门槛。"
-  default_prompt: "使用 $step-back 校准当前阶段的完成与换题边界。"
+  short_description: "审视目标、假设与路径；继续、简化、换路或停止，不默认重设计。"
+  default_prompt: "使用 $step-back 回看目标与整条路径，按证据判断下一步；保留授权和完成边界，不自动实施替代方案。"

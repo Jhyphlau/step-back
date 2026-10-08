@@ -8,8 +8,8 @@
   ],
   "missing_description_concepts": [],
   "summary": {
-    "total": 8,
-    "passed": 8,
+    "total": 11,
+    "passed": 11,
     "false_positive": 0,
     "false_negative": 0,
     "pass_rate": 1.0
@@ -44,6 +44,30 @@
       {
         "prompt": "我们失焦了，回看目标。",
         "family": "drift",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "drift"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "跳出框架，基于目标审视路径是否合适。",
+        "family": "path",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "drift"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "step back: a questionable assumption may be driving this route.",
+        "family": "path",
         "expected_trigger": true,
         "predicted_trigger": true,
         "passed": true,
@@ -100,6 +124,16 @@
       {
         "prompt": "提交前测试失败，请修复。",
         "family": "required-fix",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把项目文档和获准记忆同步到当前实现。",
+        "family": "knowledge-closeout",
         "expected_trigger": false,
         "predicted_trigger": false,
         "passed": true,
