@@ -1,17 +1,17 @@
 {
   "name": "step-back",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "owner": "Jhyphlau",
-  "updated_at": "2026-09-27",
+  "updated_at": "2026-10-08",
   "status": "local-prerelease",
   "maturity_tier": "governed",
   "context_budget_tier": "production",
   "upstream_inspiration": "555cider/agent-skills",
   "intent": {
-    "job_to_be_done": "Distinguish completed work from related new work without interrupting authorized progress.",
+    "job_to_be_done": "Revisit the goal, assumptions and overall path to choose continuing, simplifying, changing course or stopping within existing authorization.",
     "target_users": ["People collaborating with skill-capable agents"],
-    "inputs": ["Current request, agreed scope, available completion evidence"],
-    "outputs": ["A brief closure or scope-calibration statement when useful"],
+    "inputs": ["Current request, goal and success criteria, constraints, available evidence and authorization"],
+    "outputs": ["A proportional goal-and-path judgment, with a bounded recommendation or necessary decision question"],
     "exclusions": ["Background monitoring", "Project scheduling", "Automatic persistence"]
   },
   "release_gates": {

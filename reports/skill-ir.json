@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0-qiaomu-lite",
-  "generated_at": "2026-09-27",
+  "generated_at": "2026-10-08",
   "package": {
     "name": "step-back",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "owner": "Jhyphlau",
     "maturity_tier": "governed",
     "lifecycle_stage": null,
@@ -11,16 +11,16 @@
     "upstream_sync": {}
   },
   "intent": {
-    "description": "Use when a substantive task or agreed stage is ready to close, a related new question follows completed work, or repeated investigation or scope drift obscures the original outcome. Also use when the user asks to step back, 收口, or 回看目标. Not a checkpoint for every reply or an extra approval gate for already authorized work.",
-    "job_to_be_done": "Distinguish completed work from related new work without interrupting authorized progress.",
+    "description": "Use when the user asks to step back, 跳出框架, 回看目标 or 审视路径; when repeated attempts, scope drift or a questionable assumption call for reconsidering the route to a goal; or when work is ready to close or a related new question follows. Compare continuing, simplifying, changing course or stopping without defaulting to redesign, experiments or closure. Not a checkpoint for every reply or an extra approval gate for authorized work.",
+    "job_to_be_done": "Revisit the goal, assumptions and overall path to choose continuing, simplifying, changing course or stopping within existing authorization.",
     "target_users": [
       "People collaborating with skill-capable agents"
     ],
     "inputs": [
-      "Current request, agreed scope, available completion evidence"
+      "Current request, goal and success criteria, constraints, available evidence and authorization"
     ],
     "outputs": [
-      "A brief closure or scope-calibration statement when useful"
+      "A proportional goal-and-path judgment, with a bounded recommendation or necessary decision question"
     ],
     "exclusions": [
       "Background monitoring",
@@ -33,7 +33,9 @@
     "should_trigger": [
       "阶段完成，可以收口了吗？",
       "已完成，又有一个关联新问题。",
-      "我们失焦了，回看目标。"
+      "我们失焦了，回看目标。",
+      "跳出框架，基于目标审视路径是否合适。",
+      "step back: a questionable assumption may be driving this route."
     ],
     "should_not_trigger": [
       "把这句话改得更简洁。",
@@ -42,7 +44,8 @@
     ],
     "near_neighbor": [
       "请对整个项目做深入复盘。",
-      "提交前测试失败，请修复。"
+      "提交前测试失败，请修复。",
+      "把项目文档和获准记忆同步到当前实现。"
     ]
   },
   "workflow": {
